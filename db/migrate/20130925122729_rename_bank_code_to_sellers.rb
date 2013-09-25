@@ -1,4 +1,4 @@
-class RenameBankCodeToOrders < ActiveRecord::Migration
+class RenameBankCodeToSellers < ActiveRecord::Migration
   def change
   	rename_column :sellers, :bank_code, :bank_username
   end
