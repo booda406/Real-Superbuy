@@ -1,0 +1,36 @@
+<%- model_class = Product -%>
+
+<div>
+<%= simple_form_for Product.new, :url => { :controller => 'product', :action => 'buy'} do |f| %>
+<%= f.input :name %>
+<%= f.input :description %>
+<%= link_to t('.BUY', :default => t("helpers.links.create")),
+			buy_path,
+			:class => 'btn add-product btn-primary' %>
+
+<% end %>
+</div>
+<table class="table table-striped">
+  <tbody>
+	   <div class="container">
+	    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      buy_path,
+                      :method => :delete,
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+</div>
+  </tbody>
+</table>
+
+<script>
+$('.add-product').click(function(){
+	$('.product').clone().first().appendTo('.container');
+})
+</script>

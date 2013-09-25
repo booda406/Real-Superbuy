@@ -1,0 +1,51 @@
+<%- model_class = Order -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name("出貨完成") %>:</strong></dt>
+  <dd><%= @order.export %></dd>
+  <dt><strong><%= model_class.human_attribute_name("顧客email") %>:</strong></dt>
+  <dd><%= @order.contact %></dd>
+  <dt><strong><%= model_class.human_attribute_name("匯率") %>:</strong></dt>
+  <dd><%= @order.exchange_rate %></dd>
+  <dt><strong><%= model_class.human_attribute_name("運費") %>:</strong></dt>
+  <dd><%= @order.fare %></dd>
+  <dt><strong><%= model_class.human_attribute_name("手續費") %>:</strong></dt>
+  <dd><%= @order.fee %></dd>
+  <% @order.products.each do |f| %>
+  <br>
+  <dt><strong><%= model_class.human_attribute_name("商品網頁") %>:</strong></dt>
+  <dd><%= f.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name("備註") %>:</strong></dt>
+  <dd><%= f.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name("數量") %>:</strong></dt>
+  <dd><%= f.count %></dd>
+  <dt><strong><%= model_class.human_attribute_name("是否有現貨") %>:</strong></dt>
+  <dd><%= f.spot %></dd>
+  <dt><strong><%= model_class.human_attribute_name("日幣金額") %>:</strong></dt>
+  <dd><%= f.janpan_price %></dd>
+  <dt><strong><%= model_class.human_attribute_name("台幣金額") %>:</strong></dt>
+  <dd><%= f.taiwan_price %></dd>
+  <br>
+  <% end %>
+  <dt><strong><%= model_class.human_attribute_name("總金額") %>:</strong></dt>
+  <dd><%= @order.totalprice %></dd>
+  <dt><strong><%= model_class.human_attribute_name("匯款戶名") %>:</strong></dt>
+  <dd><%= @order.bank_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name("匯款賬號") %>:</strong></dt>
+  <dd><%= @order.bank_account %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              orders_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_order_path(@order), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+               order_path(@order),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

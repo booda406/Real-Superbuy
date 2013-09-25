@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: MyString
+  exchange_rate: 1.5
+  fare: 1.5
+  fee: 1.5
+  product: MyString
+  description: MyString
+  count: 1
+  spot: false
+  japanprice: 1.5
+  taiwanprice: 1.5
+  totalprice: 1.5
+  bank_name: MyString
+  bank_account: MyString
+
+two:
+  email: MyString
+  exchange_rate: 1.5
+  fare: 1.5
+  fee: 1.5
+  product: MyString
+  description: MyString
+  count: 1
+  spot: false
+  japanprice: 1.5
+  taiwanprice: 1.5
+  totalprice: 1.5
+  bank_name: MyString
+  bank_account: MyString

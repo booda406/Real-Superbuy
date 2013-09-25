@@ -1,0 +1,22 @@
+<div class="forget">
+			<h1>重設密碼</h1>
+			
+			<div class="forgetin">
+			
+			<h2>忘記密碼了嗎？請輸入您註冊時的email，我們會發送一封重設密碼的訊息給您！</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, :required => true, :autofocus => true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Send me reset password instructions" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+			</div>

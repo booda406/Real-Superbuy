@@ -1,0 +1,36 @@
+				<%- model_class = Order -%>
+<div class="mainseller">
+		<div class="seller">
+			<div class="sellerlogo"><p>賣家logo<p><%= image_tag(@seller.logo) %>
+			</div>
+<%= simple_form_for @order do |f| %>
+
+			<div class="buy">
+				<p>請在下方填入希望購買的商品網址與商品細節：</p>
+				<div class="buyblock0">
+					<div id="products">
+ 
+  <%= f.simple_fields_for :products do |product| %>
+  <%= render 'buy_fields', :f => product %>
+  <% end %>
+  <div class="buyblockbuy">
+  <div class="links" >
+  <%= link_to_add_association 'Buy', f, :products, :partial => 'buy_fields' %>
+ </div>
+ </div>
+				</div>
+				</div>
+								
+			</div>
+			
+				 <%= f.input :contact, :label => "您的email：" %>
+					 <%= f.hidden_field :seller_id %>
+				<%= f.button :submit %>
+			</div>
+			<% end %>
+			<div class="sellerinfo">
+				<p>賣家敘述</p>
+				<div class="sellerinfocontent"></div>
+			</div>
+		</div>			
+	</div>

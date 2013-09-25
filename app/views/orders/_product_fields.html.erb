@@ -1,0 +1,12 @@
+<div class="nested-fields" >
+<%= f.input :name %>
+<%= f.input :description %>
+<% if seller_signed_in? %>
+<%= f.input :success, :as => :boolean %>
+<%= f.input :count %>
+<%= f.input :spot, :as => :boolean %>
+<%= f.input :janpan_price %>
+<%= f.input :taiwan_price %>
+<% end %>
+<%= link_to_remove_association 'remove product', f %>
+</div>

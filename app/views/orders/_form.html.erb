@@ -1,0 +1,19 @@
+  <%= simple_form_for @order, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :export %>
+  <%= f.input :contact %>
+  <%= f.input :exchange_rate %>
+  <%= f.input :fare %>
+  <%= f.input :fee %>
+  <%= f.simple_fields_for :products do |product| %>
+  <%= render 'product_fields', :f => product %>
+  <% end %>
+  <%= link_to_add_association 'add product', f, :products %>
+  <%= f.input :totalprice %>
+  <%= f.input :bank_name %>
+  <%= f.input :bank_account %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                orders_path, :class => 'btn' %>
+  </div>
+<% end %>
