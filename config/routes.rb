@@ -17,6 +17,8 @@ Superbuy::Application.routes.draw do
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+      get 'privacy' => 'orders#privacy'
+      get 'service' => 'orders#service'
       get 'welcome' => 'orders#welcome', :as => :welcome
       get 'buy' => 'product#buy', :as => :buy
       post 'buy' => 'product#buy'

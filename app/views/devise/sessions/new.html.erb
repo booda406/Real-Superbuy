@@ -29,13 +29,13 @@
     <p><%= f.input_field :remember_me, :as => :boolean if devise_mapping.rememberable? %>記住我</p>
 	
 	<div class="register3">
-   	 <%= f.button :submit, "Sign in" %>
+   	 <%= f.button :submit, "登入" %>
   </div>
 
 <% end %>
 								<h5><%= link_to "忘記密碼", new_password_path(resource_name) %>了嗎？</h5>
 								<h5>還沒有帳號？點這邊  <%= link_to "註冊帳號", new_registration_path(resource_name) %>！</h5>
-								<h6><a href="file://localhost/Users/viator75/Dropbox/Superbuy/privacy.html">隱私政策</a>/<a href="file://localhost/Users/viator75/Dropbox/Superbuy/service.html">服務條款</a>！</h6>
+								<h6><a href="/privacy.html">隱私政策</a>/<a href="/service.html">服務條款</a>！</h6>
 					
 									<br>
 								

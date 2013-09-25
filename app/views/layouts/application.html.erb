@@ -33,15 +33,18 @@
     <div class="header">
     <div class="headerin">
       
-      <a href="file://localhost/Users/viator75/Dropbox/Superbuy/superbuy.html">
+      <a href="/sellers/sign_in">
       <div class="logo">
       </div></a>    
 
       <div class="bar">
-
-        <a href="/sign_in"><div class="menu"><p>產品功能</p></div></a>
-        <div class="menu"><p>方案介紹</p></div>
-        <div class="menu"><p>新手上路</p></div>
+        <% if request.original_url == "http://localhost:3000/sellers/sign_in" %>
+        <a href="#headline1" class="smoothScroll"><div class="menu"><p>產品功能</p></div></a>
+        <a href="#headline2" class="smoothScroll">
+        <div class="menu"><p>方案介紹</p></div></a>
+        <a href="#headline3" class="smoothScroll">
+        <div class="menu"><p>新手上路</p></div></a>
+        <% end %>
         <div class="menu"><p><%= link_to("登入與註冊", new_seller_session_path ) %>
         </p></div>
       </div>    
@@ -85,15 +88,14 @@
 
   </head>
   <body>
-    
- 
+ <div>
    <%= bootstrap_flash %>
             <%= yield %>
-
-     <div class="footer">
-    <p>地址：台北市文山區木柵郵局1-473號信箱&nbsp;&nbsp;|&nbsp;&nbsp;客服信箱：tough@fontech.com.tw&nbsp;&nbsp;|&nbsp;&nbsp;電話：(02)2234-2968</P><br>
-      <p>Copyright © 2013 方客特有限公司, All right reserved
-      </p>
   </div>
-  </body
+  <div class="footer">
+      <p>地址：台北市文山區木柵郵局1-473號信箱&nbsp;&nbsp;|&nbsp;&nbsp;客服信箱：tough@fontech.com.tw&nbsp;&nbsp;|&nbsp;&nbsp;電話：(02)2234-2968</P><br>
+      <p>Copyright © 2013 方客特有限公司, All right reserved</p>
+    </div>  
+  </body>
+
 </html>

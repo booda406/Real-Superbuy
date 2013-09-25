@@ -1,32 +1,31 @@
 <div class="fill">
-      <h1>註冊</h1>
-      
-      <div class="fillin">
-      
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <h1>註冊</h1>
+    <div class="fillin">
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
+      <div class="signupform">
+      <div class="form-inputs">
+        <%= f.input :name, :required => true, :autofocus => true, :label => "姓名"%>
+        <%= f.input :email, :required => true, :inline_label => "帳號", :label => "Email信箱" %>
+        <%= f.input :password, :required => true, :label => "密碼" %>
+        <%= f.input :password_confirmation, :required => true, :label => "確認密碼" %>
+        <%= f.input :phone, :required => true, :label => "電話" %>
+        <%= f.input :years, :collection => 0..10, :prompt => 0, :label => "網路買賣經驗" %>
+        <%= f.input :store, :required => true, :label => "店名" %>
+        <%= f.input :logo, :required => false, :label => "上傳商店看板（600px X 250px)" %>
+        <%= f.input :about, :required => true, :label => "關於店家" %>
+        <%= f.input :bank, :required => true, :label => "銀行名稱代碼" %>
+        <%= f.input :bank_branch, :required => true, :label => "分行名稱" %>
+        <%= f.input :bank_username, :required => true, :label => "匯款戶名" %>
+        <%= f.input :account, :required => true, :label => "帳號" %>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :name, :required => true %>
-    <%= f.input :email, :required => true, :autofocus => true, :inline_label => "帳號" %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
-    <%= f.input :phone, :required => true %>
-    <%= f.input :years, :collection => 0..10, :prompt => 0, :label => "代買多久" %>
-    <%= f.input :store, :required => true, :label => "店名" %>
-    <%= f.input :logo, :required => true %>
-    <%= f.input :about, :required => true, :label => "關於店家" %>
-    <%= f.input :bank, :required => true, :label => "銀行名稱代碼" %>
-    <%= f.input :bank_branch, :required => true, :label => "分行名稱" %>
-    <%= f.input :bank_username, :required => true, :label => "匯款戶名" %>
-    <%= f.input :account, :required => true, :label => "帳號" %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
- </div>
-  </div>
+      <div class="form-actions">
+        <%= f.button :submit, "註冊" %>
+      </div>
+      </div>
+      <% end %>
+  
+    </div>
+</div>
   
