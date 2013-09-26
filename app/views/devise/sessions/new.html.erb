@@ -26,16 +26,16 @@
 <div class="register2">
     <p>密碼</p><%= f.input_field :password, :required => false %>
 </div>
-    <p><%= f.input_field :remember_me, :as => :boolean if devise_mapping.rememberable? %>記住我</p>
+    <p><%= f.input_field :remember_me, :as => :boolean if devise_mapping.rememberable? %>&nbsp;&nbsp;記住我</p>
 	
 	<div class="register3">
    	 <%= f.button :submit, "登入" %>
   </div>
 
 <% end %>
-								<h5><%= link_to "記密碼", new_password_path(resource_name) %>了嗎？</h5>
-								<h5>還沒有帳號？點這邊  <%= link_to "註冊帳號", new_registration_path(resource_name) %>！</h5>
-								<h6><a href="/privacy.html">隱私政策</a>/<a href="/service.html">服務條款</a>！</h6>
+								<h5><%= link_to "忘記密碼", new_password_path(resource_name) %>了嗎？</h5>
+								<h5>還沒有帳號？點這邊<%= link_to "註冊帳號", new_registration_path(resource_name) %>！</h5>
+								<h6><a href="/privacy.html">隱私政策</a>/<a href="/service.html">&nbsp;服務條款</a>！</h6>
 					
 									<br>
 								
@@ -46,7 +46,7 @@
 
 		<div class="feature"><a name="headline1"></a>
 			<h1>產品功能</h1>
-
+<div class="title"><h4>Superbuy超級寶是專為小資網購、代購賣家設計的訂單管理系統，透過最簡單、方便的工具方便您的盤點作業。<br>現在立即註冊基本寶，完全免費！</h4></div>
 			<div class="featureoutter">
 
 				<div class="featureinner">

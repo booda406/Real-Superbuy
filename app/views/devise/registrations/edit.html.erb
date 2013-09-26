@@ -1,50 +1,37 @@
-<html>
-<body>
 <div class="setting">
       <h1>設定</h1>
-      
       <div class="settingin">
-      
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= f.error_notification %>
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :name, :required => true, :label => "姓名", :placeholder=> "請填入您的姓名"%>
+        <%= f.input :email, :required => true, :autofocus => true, :inline_label => "帳號", :label => "Email信箱", :placeholder=> "請填入您的信箱作為帳號" %>
 
-  <div class="form-inputs">
-    <%= f.input :name, :required => true %>
-    <%= f.input :email, :required => true, :autofocus => true %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-    <%= f.input :password_confirmation, :required => false %>
-    <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
-    <%= f.input :phone, :required => true %>
-    <%= f.input :years, :collection => 0..10, :prompt => 0, :label => "代買多久" %>
-    <%= f.input :store, :required => true, :label => "店名" %>
-    <%= f.input :logo %>
-    <%= image_tag(current_seller.logo) %>
-    <%= f.input :about, :required => true, :label => "關於店家" %>
-    <%= f.input :bank, :required => true, :label => "銀行名稱代碼" %>
-    <%= f.input :bank_branch, :required => true, :label => "分行名稱" %>
-    <%= f.input :bank_username, :required => true, :label => "匯款戶名" %>
-    <%= f.input :account, :required => true, :label => "帳號" %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>
-
+        <%= f.input :password, :autocomplete => "off", :placeholder => "如果沒有要改密碼此區留白即可", :required => false, :label => "修改密碼" %>
+        <%= f.input :password_confirmation, :required => false, :placeholder => "請再次輸入欲修改密碼",:label => "確認密碼" %>
+        <%= f.input :current_password, :required => true, :placeholder => "請輸入原始密碼",:label => "原始密碼"  %>
+        <%= f.input :phone, :required => true,:label => "電話"  %>
+        <%= f.input :years, :collection => 0..10, :prompt => 0, :label => "網路買賣經驗" %>
+        <%= f.input :store, :required => true, :label => "店名" %>
+        <%= f.input :logo, :label => "更新商店看板（600px X 250px)"  %>
+        <%= image_tag(current_seller.logo) %>
+        <%= f.input :about, :required => true, :label => "關於店家", :placeholder=> "介紹一下自己的商店吧！" %>
+        <%= f.input :bank, :required => true, :label => "銀行名稱代碼" %>
+        <%= f.input :bank_branch, :required => true, :label => "分行名稱" %>
+        <%= f.input :bank_username, :required => true, :label => "匯款戶名" %>
+        <%= f.input :account, :required => true, :label => "帳號" %>
       </div>
-  
-  </div>
 
-</body>
-</html>
+      <div class="form-actions">
+        <%= f.button :submit, "Update" %>
+      </div>
+      <% end %>
+
+
+
+</div>
+  

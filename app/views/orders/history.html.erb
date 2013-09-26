@@ -2,55 +2,69 @@
       <h1>歷史訂單</h1>
       
       <div class="historyin">
-      
-<%- model_class = Order -%>
+        <div class="action">
+          <%- model_class = Order -%>
 
-<%= form_tag search_orders_path, :method => :get do %>
-From<%= text_field_tag id="start_date" %>
-<br>To<%= text_field_tag id="end_date" %>
-  <%= submit_tag "Search" %>
-<% end %>
-      
-      
-<table>
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name("日期") %></th>
-      <th><%= model_class.human_attribute_name("顧客email") %></th>
-      <th><%= model_class.human_attribute_name("台幣金額") %></th>
-      <th><%= model_class.human_attribute_name("運費") %></th>
-      <th><%= model_class.human_attribute_name("手續費") %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.created_at.strftime("%F") %></td>
-        <td><%= link_to order.contact, order_path(order) %></td>
-        <td><%= order.totalprice %></td>
-        <td><%= order.fare %></td>
-        <td><%= order.fee %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_order_path(order), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      order_path(order),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-
-
-
-
+          <%= form_tag search_orders_path, :method => :get do %>
+          From<%= text_field_tag id="start_date" %>
+          <br>To<%= text_field_tag id="end_date" %>
+            <%= submit_tag "Search" %>
+          <% end %>
       </div>
+      
+        <table>
+          <thead>
+            <tr>
+              <th><%= model_class.human_attribute_name("日期") %></th>
+              <th><%= model_class.human_attribute_name("顧客email") %></th>
+              <th><%= model_class.human_attribute_name("台幣金額") %></th>
+              <th><%= model_class.human_attribute_name("運費") %></th>
+              <th><%= model_class.human_attribute_name("手續費") %></th>
+              <th><%=t '.actions', :default => t("helpers.actions") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders.each do |order| %>
+              <tr>
+                <td><%= order.created_at.strftime("%F") %></td>
+                <td><%= link_to order.contact, order_path(order) %></td>
+                <td><%= order.totalprice %></td>
+                <td><%= order.fare %></td>
+                <td><%= order.fee %></td>
+                <td>
+                  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                              edit_order_path(order), :class => 'btn btn-mini' %>
+                  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                              order_path(order),
+                              :method => :delete,
+                              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                              :class => 'btn btn-mini btn-danger' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    <div class="hisinfo">
+    <table class="hisinfo">
+        <tr>
+          <th>商品總金額</th>
+          <th>元</th> 
+        </tr>
+         <tr>
+          <td>運費總金額</td>
+          <td>元</td>
+        </tr>
+          <th>手續費總金額</th>
+          <td>元</td>
+        </tr>
+         
+    </table>
+    </div>
+
+
+
+
+  </div>
       
           
     

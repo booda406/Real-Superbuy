@@ -1,53 +1,74 @@
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link href='http://fonts.googleapis.com/css?family=Dosis:400,500' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
-  
-
-</head>
-
-<body>
-  
-    <div class="waiting">
+<div class="waiting">
         <h1>待處理訂單</h1>
         
+          <div class="waitinfo">
+    <table class="hisinfo">
+        <tr>
+          <th>商品總金額</th>
+          <th>元</th> 
+        </tr>
+         <tr>
+          <td>運費總金額</td>
+          <td>元</td>
+        </tr>
+          <th>手續費總金額</th>
+          <td>元</td>
+        </tr>
+         
+    </table>
+    </div>
+
+
         <div class="waitingin">
-        
 
-<%- model_class = Order -%>
+          <%- model_class = Order -%>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name("日期") %></th>
-      <th><%= model_class.human_attribute_name("顧客email") %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.created_at.strftime("%F") %></td>
-        <td><%= order.contact %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_order_path(order), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      order_path(order),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th><%= model_class.human_attribute_name("日期") %></th>
+                <th><%= model_class.human_attribute_name("顧客email") %></th>
+                <th><%=t '.actions', :default => t("helpers.actions") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @orders.each do |order| %>
+                <tr>
+                  <td><%= order.created_at.strftime("%F") %></td>
+                  <td><%= order.contact %></td>
+                  <td>
+                    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                                edit_order_path(order), :class => 'btn btn-mini' %>
+                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                                order_path(order),
+                                :method => :delete,
+                                :confirm => '你確定嗎?',
+                                :class => 'btn btn-mini btn-danger' %>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
         </div>
-      
-    </div>    
-
-</body>
 
 
-</html>
+  <div class="waitmoney">
+    <table>
+        <tr>
+          <th>商品總金額</th>
+          <th>元</th> 
+        </tr>
+         <tr>
+          <td>運費總金額</td>
+          <td>元</td>
+        </tr>
+          <th>手續費總金額</th>
+          <td>元</td>
+        </tr>
+         
+    </table>
+                  <% end %>
+
+    </div>
+
+
+</div>    

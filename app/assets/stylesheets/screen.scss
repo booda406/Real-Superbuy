@@ -27,9 +27,31 @@ time, mark, audio, video {
 }
 
 /* line 22, ../../../../../Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-html {
-  line-height: 1;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
+
+#wrapper {
+    height: auto !important;
+    min-height: 100%;
+    height: 100%;
+    position: relative; /* Required to absolutely position the footer */
+}
+
+#footer {
+    height: 65px; /* Define height of the footer */
+    position: absolute;
+    bottom: 0; /* Sit it on the bottom */
+    left: 0;
+    width: 100%; /* As wide as it's allowed */
+    background-color: #02185b;
+    padding: 15px 0px 0px 0px;
+}
+
+
 
 /* line 24, ../../../../../Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
@@ -135,14 +157,45 @@ h6 {
   margin: -5px 0px 10px 0px;
 }
 
+.title{
+  margin: 0 auto;
+  width: 560px;
+
+}
+
+a:link {
+  color: white;
+  font-weight: bold;
+}
+
+a:visited{
+  color: white;
+}
+
+a:hover{
+  color: white;
+}
+
+a:active{
+  color: white;
+}
 
 
-a {
-  color: #FFFFFF;
-  &:visited {
-    color: #FFFFFF;
-  }
+.signup a:link {
+  color: black;
+  font-weight: bold;
+}
 
+.signup a:visited{
+  color: black;
+}
+
+.signup a:hover{
+  color: black;
+}
+
+.signup a:active{
+  color: white;
 }
 
 
@@ -434,6 +487,7 @@ input, textarea {
   height: 100%;
   min-height: 3000px;
   margin: 70px auto 0px auto;
+  padding-bottom: 120px;
 }
 
 /* line 348, ../sass/screen.scss */
@@ -466,6 +520,7 @@ input, textarea {
   min-width: 960px;
   height: 1700px;
   margin: 70px auto 0px auto;
+  padding-bottom: 120px;
 }
 
 /* line 378, ../sass/screen.scss */
@@ -510,10 +565,12 @@ input, textarea {
 /* line 408, ../sass/screen.scss */
 .forget {
   width: 100%;
+  height: auto;
   min-width: 960px;
   height: 100%;
   min-height: 100%;
   margin: 70px auto -50px auto;
+  padding-bottom: 70px;
 
 
 }
@@ -542,8 +599,9 @@ input, textarea {
 /* line 430, ../sass/screen.scss */
 .setting {
   width: 940px;
-  height: 1500px;
+  height: auto;
   margin: 70px auto 0px auto;
+  padding-bottom:140px;
 }
 
 /* line 436, ../sass/screen.scss */
@@ -552,6 +610,7 @@ input, textarea {
   height: 1500px;
   border-top: 1px solid;
   margin: 70px auto 0px auto;
+  padding-top:20px;
 }
 
 /* line 443, ../sass/screen.scss */
@@ -569,6 +628,27 @@ input, textarea {
   margin: 70px auto 0px auto;
   padding: 40px 0 40px 0;
   text-align: center;
+}
+.action{
+  width: 740px;
+  height: auto;
+  border: 1px solid black;
+  margin: 20px auto;
+
+}
+
+
+.hisinfo{
+  width: 740px;
+  height: auto;
+  border: 1px solid black;
+  margin: 20px auto;
+}
+.hisinfo table tr td{
+  width: 240px;
+  height: auto;
+  border: 1px solid black;
+  margin: 20px auto;
 }
 
 /* line 459, ../sass/screen.scss */
@@ -638,18 +718,18 @@ input, textarea {
 }
 
 /* line 523, ../sass/screen.scss */
-.footer {
-  width: 100%;
-  min-width: 960px;
-  margin: -70px auto 0px auto;
-  height: 50px;
-  clear: both;
-  background-color: #02185b;
-  padding-top: 20px;
-}
+// .footer {
+//   width: 100%;
+//   min-width: 960px;
+//   margin: -70px auto 0px auto;
+//   height: 50px;
+//   clear: both;
+//   background-color: #02185b;
+//   padding-top: 20px;
+// }
 
 /* line 533, ../sass/screen.scss */
-.footer p {
+#footer p {
   font-size: 14px;
   text-align: center;
   font-weight: 300;
@@ -668,9 +748,19 @@ html, body, .setting .waiting, .logout, .history, .container, .forget, .fill, .p
 .mainseller {
   width: 100%;
   min-width: 960px;
-  height: 100%;
+  height: auto;
   margin: 0px auto;
+  padding: 50px auto 50px auto;
 }
+
+.seller {
+  width: 100%;
+  min-width: 960px;
+  height: auto;
+  margin: 50px auto;
+  padding: 50px auto 50px auto;
+}
+
 
 /* line 561, ../sass/screen.scss */
 .sellerbuy {
@@ -683,15 +773,15 @@ html, body, .setting .waiting, .logout, .history, .container, .forget, .fill, .p
 /* line 568, ../sass/screen.scss */
 .sellerlogo {
   width: 600px;
-  height: 250px;
+  height: 360px;
   border: 1px solid;
   margin: 0 auto;
 }
 
 /* line 576, ../sass/screen.scss */
 .buy {
-  width: 500px;
-  height: 140px;
+  width: 600px;
+  height: auto;
   margin: 20px auto;
 }
 
@@ -704,11 +794,12 @@ html, body, .setting .waiting, .logout, .history, .container, .forget, .fill, .p
 
 /* line 588, ../sass/screen.scss */
 .buyblock0 {
-  width: 400px;
-  height: 90px;
-  margin: 10px 0px 0px 0px;
+  width: auto;
+  height: auto;
+  margin: 10px auto 0px auto;
   display: inline-block;
-  background-color: red;
+  padding-bottom: 50px;
+
 }
 
 /* line 600, ../sass/screen.scss */
@@ -717,7 +808,7 @@ html, body, .setting .waiting, .logout, .history, .container, .forget, .fill, .p
   height: 30px;
   margin: 10px 0px 0px 0px;
   display: block;
-  background-color: yellow;
+  // background-color: yellow;
 }
 
 /* line 610, ../sass/screen.scss */
@@ -726,57 +817,76 @@ html, body, .setting .waiting, .logout, .history, .container, .forget, .fill, .p
   height: 30px;
   margin: 10px 0px 10px 0px;
   display: block;
-  background-color: yellow;
+  // background-color: green;
+
 }
+
+// .test{
+//   background-color:green;
+// }
 
 /* line 619, ../sass/screen.scss */
 .buyblockbuy {
   width: 90px;
   height: 90px;
-  display: inline-block;
-  background-color: red;
+  // display: inline-block;
+  background-color: brown;
+  float: right;
 }
 
 /* line 629, ../sass/screen.scss */
 .bought {
   width: 500px;
-  height: 140px;
+  height: auto;
   margin: 20px auto;
 }
 
 /* line 638, ../sass/screen.scss */
 .boughtblock0 {
   width: 400px;
-  height: 90px;
+  height: auto;
   margin: 10px 0px 0px 0px;
-  display: inline-block;
-  background-color: red;
+  // display: inline-block;
+  // background-color: red;
 }
 
 /* line 647, ../sass/screen.scss */
 .boughtblock1 {
   width: 400px;
-  height: 30px;
+  height: auto;
   margin: 10px 0px 0px 0px;
   display: block;
   background-color: yellow;
+  float:left;
 }
 
 /* line 656, ../sass/screen.scss */
 .boughtblock2 {
   width: 400px;
-  height: 30px;
+  height: auto;
   margin: 10px 0px 0px 0px;
   display: block;
   background-color: yellow;
+  float:left;
+}
+.buydone{
+  width: 500px;
+  padding:20px;
+  border:1px solid grey;
+  margin: 5px auto 5px auto;
+}
+
+.blackfont{
+  color: black;
 }
 
 /* line 665, ../sass/screen.scss */
 .boughtblockdelete {
-  width: 90px;
-  height: 90px;
+  width: 450px;
+  height: auto;
   display: inline-block;
-  background-color: red;
+  // background-color: red;
+  
 }
 
 /* line 674, ../sass/screen.scss */
@@ -784,38 +894,41 @@ html, body, .setting .waiting, .logout, .history, .container, .forget, .fill, .p
   width: 500px;
   height: 50px;
   margin: 20px auto;
-  background-color: red;
+  // background-color: red;
 }
 
 /* line 683, ../sass/screen.scss */
 .infoblock1 {
-  width: 400px;
-  height: 30px;
+  width: 600px;
+  height: auto;
   margin: 10px auto;
-  display: inline-block;
-  background-color: yellow;
+  // background-color: yellow;
 }
 
 /* line 692, ../sass/screen.scss */
-.infoblock2 {
-  width: 90px;
-  height: 30px;
-  margin: 10px auto;
-  display: inline-block;
-  background-color: yellow;
-}
+// .infoblock2 {
+//   width: 90px;
+//   height: 30px;
+//   margin: 10px auto;
+//   display: inline-block;
+//   background-color: yellow;
+// }
 
 /* line 701, ../sass/screen.scss */
 .sellerinfo {
-  width: 500px;
-  height: 70px;
+  width: 600px;
+  height: auto;
   margin: 20px auto 0px auto;
 }
 
 /* line 709, ../sass/screen.scss */
 .sellerinfocontent {
-  width: 500px;
-  height: 50px;
-  margin: 10px auto 10px auto;
-  background-color: yellow;
+  width: 600px;
+  height: auto;
+  padding: 10px;
+  margin:0px auto;
+  // background-color: yellow;
+  border: 2px solid;
 }
+
+

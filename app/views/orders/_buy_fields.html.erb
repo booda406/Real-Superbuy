@@ -1,6 +1,10 @@
+
 <div class="nested-fields" >
-<div class="buyblock1"><%= f.input :name %></div>
-<div class="buyblock2"><%= f.input :description %></div>
-<div class="boughtblockdelete"><%= link_to_remove_association 'remove product', f, :partial => 'buy_fields' %>
+	<div class="buydone">
+	<div class="buyblock1">商品網址：<%= f.input_field :name, :style => "font-size:18px;color:black" %></div>
+	</div>
+	<div class="buyblock2">商品規格：<%= f.input_field :description, :placeholder => "例如顏色、尺寸與數量", :style => "font-size:16px;color:black"  %></div>
+	<div class="boughtblockdelete"><%= link_to_remove_association '移除商品', f, :partial => 'buy_fields', :style => "font-size:16px;color:white;float:right;font-weight:300", :class => "btn btn-danger", :data => { :role => "button"} %>
+	</div>
 </div>
-</div>
+<div>

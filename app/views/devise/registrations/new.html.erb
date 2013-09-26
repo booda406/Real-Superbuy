@@ -1,23 +1,24 @@
 <div class="fill">
   <h1>註冊</h1>
+  <div class="title"><h4>Superbuy超級寶是專為小資網購、代購賣家設計的訂單管理系統，透過最簡單、方便的工具方便您的盤點作業。<br>現在立即註冊基本寶，完全免費！</h4></div>
     <div class="fillin">
       <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
       <div class="signupform">
       <div class="form-inputs">
-        <%= f.input :name, :required => true, :autofocus => true, :label => "姓名"%>
-        <%= f.input :email, :required => true, :inline_label => "帳號", :label => "Email信箱" %>
-        <%= f.input :password, :required => true, :label => "密碼" %>
-        <%= f.input :password_confirmation, :required => true, :label => "確認密碼" %>
-        <%= f.input :phone, :required => true, :label => "電話" %>
+        <%= f.input :name, :required => true, :autofocus => true, :label => "姓名", :placeholder=> "請填入您的姓名"%>
+        <%= f.input :email, :required => true, :inline_label => "帳號", :label => "Email信箱", :placeholder=> "請填入您的信箱作為帳號" %>
+        <%= f.input :password, :required => true, :label => "密碼", :placeholder=> "請設定至少八位字元的密碼" %>
+        <%= f.input :password_confirmation, :required => true, :label => "確認密碼" , :placeholder=> "請再次輸入密碼"%>
+        <%= f.input :phone, :required => true, :label => "電話" , :placeholder=> "數字間請勿輸入符號或空白"%>
         <%= f.input :years, :collection => 0..10, :prompt => 0, :label => "網路買賣經驗" %>
-        <%= f.input :store, :required => true, :label => "店名" %>
+        <%= f.input :store, :required => true, :label => "您的店名" %>
         <%= f.input :logo, :required => false, :label => "上傳商店看板（600px X 250px)" %>
-        <%= f.input :about, :required => true, :label => "關於店家" %>
-        <%= f.input :bank, :required => true, :label => "銀行名稱代碼" %>
+        <%= f.input :about, :required => true, :label => "關於賣家", :placeholder=> "介紹一下自己的商店吧！" %>
+        <%= f.input :bank, :required => true, :label => "您的銀行名稱代碼"%>
         <%= f.input :bank_branch, :required => true, :label => "分行名稱" %>
         <%= f.input :bank_username, :required => true, :label => "匯款戶名" %>
-        <%= f.input :account, :required => true, :label => "帳號" %>
+        <%= f.input :account, :required => true, :label => "帳號" , :placeholder=> "請填入給買家匯款專用的帳戶"%>
       </div>
 
       <div class="form-actions">

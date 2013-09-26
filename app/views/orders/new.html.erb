@@ -1,36 +1,41 @@
-				<%- model_class = Order -%>
+<%- model_class = Order -%>
 <div class="mainseller">
-		<div class="seller">
-			<div class="sellerlogo"><p>賣家logo<p><%= image_tag(@seller.logo) %>
-			</div>
-<%= simple_form_for @order do |f| %>
+	<div class="seller">
+		<div class="sellerlogo"><%= image_tag(@seller.logo) %>
+		</div>
+		<%= simple_form_for @order do |f| %>
 
-			<div class="buy">
-				<p>請在下方填入希望購買的商品網址與商品細節：</p>
-				<div class="buyblock0">
-					<div id="products">
+		<div class="buy">
+			<div class="buyblock0">
+				<p>請在下方填入希望購買的商品網址與商品細節：</p><br>
+				<div id="products">
  
-  <%= f.simple_fields_for :products do |product| %>
-  <%= render 'buy_fields', :f => product %>
-  <% end %>
-  <div class="buyblockbuy">
-  <div class="links" >
-  <%= link_to_add_association 'Buy', f, :products, :partial => 'buy_fields' %>
- </div>
- </div>
+  					<%= f.simple_fields_for :products do |product| %>
+  					<%= render 'buy_fields', :f => product %>
+  					<% end %>
+  				</div>
+
+				<div class="links" >
+					<br>
+					  <%= link_to_add_association '新增商品', f, :products, :partial => 'buy_fields', :style => "font-size:16px;color:white;font-weight:300", :class => "btn btn-primary", :data => { :role => "button"} %>
+					
 				</div>
+				<div class="infoblock1">
+					<p>您的email：<%= f.input_field :contact %>
+						 <%= f.hidden_field :seller_id %>
+					<%= f.button :submit, "送出訂單", :class => "btn-info", :style => "font-size:16px" %></p>
 				</div>
-								
-			</div>
-			
-				 <%= f.input :contact, :label => "您的email：" %>
-					 <%= f.hidden_field :seller_id %>
-				<%= f.button :submit %>
-			</div>
-			<% end %>
+				<% end %>
+
 			<div class="sellerinfo">
-				<p>賣家敘述</p>
-				<div class="sellerinfocontent"></div>
+				<p>關於賣家</p>
+				<div class="sellerinfocontent"><%= @seller.about %></div>
 			</div>
-		</div>			
-	</div>
+					
+			</div>
+			</div>
+								
+		</div>
+			
+	</div>			
+</div>
